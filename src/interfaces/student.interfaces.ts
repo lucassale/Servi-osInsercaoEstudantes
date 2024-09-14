@@ -1,17 +1,18 @@
 /*
-model StudentInfo {
+model Student {
   id Int @id @default(autoincrement())
-  phone String
-  address String
-  studentId Int @unique
-  student Student @relation(fields: [studentId], references: [id])
+  name String
+  email String @unique
+  studentInfo StudentInfo?
+  questions Question[]
+  courses Course[]
 }
 */
 
 export interface IStudent{
     id: number
-    phone: number
-    address: string
+    name: string
+    email: string
 }
 
 export type TCreateStudentBody = Omit<IStudent, 'id'>
